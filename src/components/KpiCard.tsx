@@ -4,7 +4,7 @@ import { formatUnit, formatDelta } from '@/lib/format';
 import { StatusDot } from './StatusBadge';
 import { Sparkline } from './Sparkline';
 import { windowOf } from '@/lib/aggregations';
-import { ArrowUp, ArrowDown, Minus } from '@/components/icons';
+import { ArrowUp, ArrowDown, Minus } from 'lucide-react';
 import { useCountUp } from '@/hooks/useCountUp';
 
 interface KpiCardProps {

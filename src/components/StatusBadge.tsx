@@ -1,6 +1,6 @@
 import type { Status } from '@/types/metrics';
 import { cn } from '@/lib/cn';
-import { TrendingUp, TrendingDown, AlertTriangle, Minus } from '@/components/icons';
+import { TrendingUp, TrendingDown, AlertTriangle, Minus } from 'lucide-react';
 
 interface StatusBadgeProps {
   status: Status;

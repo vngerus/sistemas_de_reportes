@@ -1,7 +1,7 @@
 import type { MetricScore } from '@/types/metrics';
 import { cn } from '@/lib/cn';
-import { StatusBadge } from './StatusBadge';
-import { AlertCircle, TrendingUp, Info } from '@/components/icons';
+import { StatusBadge } from '@/components/StatusBadge';
+import { AlertCircle, TrendingUp, Info } from 'lucide-react';
 
 interface HeadlineInsightsProps {
   headlines: MetricScore[];

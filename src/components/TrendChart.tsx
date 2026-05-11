@@ -8,12 +8,12 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts';
+import type { DotItemDotProps, TooltipContentProps, TooltipValueType } from 'recharts';
 import type { MetricKey, DayPoint, MetricScore, MetricDef } from '@/types/metrics';
 import { cn } from '@/lib/cn';
 import { formatDate, formatUnit } from '@/lib/format';
 import { detectAnomalies } from '@/lib/anomalies';
-import { StatusBadge } from './StatusBadge';
-
+import { StatusBadge } from '@/components/StatusBadge';
 interface TrendChartProps {
   days: DayPoint[];
   scores: MetricScore[];
@@ -21,6 +21,16 @@ interface TrendChartProps {
   defaultMetric?: MetricKey;
   className?: string;
 }
+
+type TrendChartDatum = {
+  date: string;
+  value: number | null;
+  anomaly: boolean;
+  mean: number | null;
+  formattedDate: string;
+};
+
+type TrendChartTooltipProps = TooltipContentProps<TooltipValueType, string | number>;
 
 export function TrendChart({
   days,
@@ -97,7 +107,7 @@ export function TrendChart({
 
   const hasTrend = values.length > 1;
 
-  const renderDot = (props: any) => {
+  const renderDot = (props: DotItemDotProps) => {
     if (!props.payload?.anomaly) return null;
     return (
       <circle
@@ -111,9 +121,10 @@ export function TrendChart({
     );
   };
 
-  const tooltipContent = ({ active, payload }: any) => {
+  const tooltipContent = ({ active, payload }: TrendChartTooltipProps) => {
     if (!active || !payload?.length) return null;
-    const point = payload[0].payload as (typeof chartData)[number];
+    const point = payload[0].payload as TrendChartDatum | undefined;
+    if (!point) return null;
 
     return (
       <div className="rounded-md border border-border bg-card px-3 py-2 text-xs text-foreground shadow-lg">

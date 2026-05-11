@@ -1,6 +1,6 @@
 import type { MetricScore, DayPoint, MetricDef } from '@/types/metrics';
 import { cn } from '@/lib/cn';
-import { KpiCard } from './KpiCard';
+import { KpiCard } from '@/components/KpiCard';
 
 interface MetricGridProps {
   scores: MetricScore[];

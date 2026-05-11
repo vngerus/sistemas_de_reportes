@@ -19,9 +19,9 @@ export function HeadlineInsights({ headlines, className }: HeadlineInsightsProps
       </div>
     );
   }
-  
+
   const hasBadMetrics = headlines.some(h => h.status === 'bad');
-  
+
   return (
     <div
       className={cn('rounded-lg border bg-card p-4', className)}
@@ -39,7 +39,7 @@ export function HeadlineInsights({ headlines, className }: HeadlineInsightsProps
           {hasBadMetrics ? 'Needs Attention' : 'Key Insights'}
         </h2>
       </div>
-      
+
       {/* Headlines */}
       <div className="space-y-3">
         {headlines.map((headline, i) => (
@@ -50,19 +50,15 @@ export function HeadlineInsights({ headlines, className }: HeadlineInsightsProps
               headline.status === 'bad' && 'bg-status-bad-bg/50',
               headline.status === 'watch' && 'bg-status-watch-bg/50',
               headline.status === 'good' && 'bg-status-good-bg/50',
-              headline.status === 'neutral' && 'bg-secondary/50'
+              headline.status === 'neutral' && 'bg-secondary/50',
             )}
           >
-            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-xs font-medium">
+            <span className="shrink-0 w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-xs font-medium">
               {i + 1}
             </span>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-foreground">
-                {headline.headline}
-              </p>
-              <p className="text-xs text-muted-foreground mt-0.5">
-                {headline.reason}
-              </p>
+              <p className="text-sm font-medium text-foreground">{headline.headline}</p>
+              <p className="text-xs text-muted-foreground mt-0.5">{headline.reason}</p>
             </div>
             <StatusBadge status={headline.status} showIcon={false} />
           </div>

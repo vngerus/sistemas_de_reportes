@@ -1,7 +1,7 @@
 import type { FunnelStep, Status } from '@/types/metrics';
 import { cn } from '@/lib/cn';
 import { formatCompact } from '@/lib/format';
-import { ChevronRight, ArrowDown } from '@/components/icons';
+import { ChevronRight, ArrowDown } from 'lucide-react';
 
 interface FunnelProps {
   steps: FunnelStep[];
