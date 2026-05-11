@@ -72,7 +72,7 @@ export function buildFunnel(days: DayPoint[]): FunnelStep[] {
   const steps: FunnelStep[] = [
     {
       key: 'traffic',
-      label: 'Tráfico',
+      label: 'Traffic',
       value: sumMetric(days, 'traffic') || 0,
       conversionRate: null,
     },
@@ -84,7 +84,7 @@ export function buildFunnel(days: DayPoint[]): FunnelStep[] {
     },
     {
       key: 'leads_qualified',
-      label: 'Leads Calificados',
+      label: 'Leads Qualified',
       value: sumMetric(days, 'leads_qualified') || 0,
       conversionRate: null,
     },
@@ -96,7 +96,7 @@ export function buildFunnel(days: DayPoint[]): FunnelStep[] {
     },
     {
       key: 'deals_won',
-      label: 'Deals Ganados',
+      label: 'Deals Won',
       value: sumMetric(days, 'deals_won') || 0,
       conversionRate: null,
     },
